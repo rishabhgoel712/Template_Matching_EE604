@@ -2,11 +2,11 @@ import cv2
 import numpy as np
 from matplotlib import pyplot as plt
 
-colored_img = cv2.imread('s.jpg',1)
-colored_tmp = cv2.imread('t.jpg',2)
-img = cv2.imread('s.jpg',0)
+colored_img = cv2.imread('lib.jpg',1)
+colored_tmp = cv2.imread('lib_t.jpg',1)
+img = cv2.imread('lib.jpg',0)
 img2 = img.copy()
-template = cv2.imread('t.jpg',0)
+template = cv2.imread('lib_t.jpg',0)
 w, h = template.shape[::-1]
 
 # All the 6 methods for comparison in a list
@@ -36,7 +36,7 @@ for meth in methods:
 
     plt.subplot(121),plt.imshow(res,cmap = 'gray')
     plt.title('Matching Result'), plt.xticks([]), plt.yticks([])
-    plt.subplot(122),plt.imshow(colored_img_)
+    plt.subplot(122),plt.imshow(cv2.cvtColor(colored_img_, cv2.COLOR_BGR2RGB))
     plt.title('Detected Point'), plt.xticks([]), plt.yticks([])
     plt.suptitle(meth)
 
